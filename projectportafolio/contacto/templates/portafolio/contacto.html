@@ -1,0 +1,28 @@
+{% extends "portafolio/index.html" %}
+{% load static %}
+
+{% block content %}
+
+<div class="contenedorForm">
+
+    <!-- aca acepta lo que recibe del parametro valido (views) -->
+    {% if "valido" in request.GET %}
+
+         <p style="color: white";>información enviada correctamente, gracias</p>
+
+
+    {% endif %}
+    
+    <form action="" method="POST">
+        {% csrf_token %}
+        <table>{{miFormulario.as_table}}</table>
+        <input type="submit" value="enviar">
+    </form>
+
+ <!-- la informacion se envia por un metodo diccionario (se almazena) -->
+
+</div>
+
+{{request.POST}}
+
+{% endblock %}
